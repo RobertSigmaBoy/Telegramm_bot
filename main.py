@@ -1,4 +1,4 @@
-import logging
+import logging 
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
@@ -16,7 +16,7 @@ from knb_game import knb_start, knb_game
 from rate import my_stat, knb_stat
 from states import MAINMENU, KNB, BAK, KNZ, RATE
 from start import start
-
+from db import create_table
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -29,6 +29,7 @@ if __name__ == "__main__":
         .token("7731212121:AAE07DCkD3hJKCeViA4qjauqBh2MN6Zp8eA")
         .build()
     )
+    create_table()
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={

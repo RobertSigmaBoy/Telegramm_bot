@@ -8,7 +8,7 @@ from telegram.ext import (
     ContextTypes,
 
 )
-
+from db import create_user
 
 from states import MAINMENU
 
@@ -27,6 +27,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=markup,
         )
     else:
+        create_user(update.effective_user.id , update.effective_user.name)
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text=f"Привет,{update.effective_user.first_name}!Давай поиграем в игры кстати я о тебе многое знаю твое ади:{update.effective_user.id}твое имя:{update.effective_user.first_name}твоя иконка:{update.effective_user.get_profile_photos}твой язык:{update.effective_user.language_code}  твое последнее имя:{update.effective_user.last_name}  ну так что ходишь?",
