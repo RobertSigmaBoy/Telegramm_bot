@@ -19,10 +19,9 @@ async def my_stat(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Назад", callback_data="back")],
     ]
     markup = InlineKeyboardMarkup(keyboard)
-
-async def knb_stat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text("Ваша статистика:", reply_markup=markup)
 
-    return RATE
 async def knb_stat(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    pass
+    query = update.callback_query
+
+    return RATE
