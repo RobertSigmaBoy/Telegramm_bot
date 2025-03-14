@@ -13,7 +13,7 @@ from inline_button_proc import inline_button_proc
 from knz_game import knz_game
 from bac_game import bac_game, bac_start
 from knb_game import knb_start, knb_game
-from rate import my_stat, knb_stat
+from rate import my_stat, knb_stat , knz_stat,bac_stat
 from states import MAINMENU, KNB, BAK, KNZ, RATE
 from start import start
 from db import create_table
@@ -50,6 +50,8 @@ if __name__ == "__main__":
             RATE: [
                 CallbackQueryHandler(knb_stat, pattern="^knb_state$"),
                 CallbackQueryHandler(start, pattern="^back$"),
+                CallbackQueryHandler(knz_stat, pattern="^knz_state$"),
+                CallbackQueryHandler(bac_stat, pattern="^bac_state$"),
             ],
         },
         fallbacks=[CommandHandler("start", start)],
