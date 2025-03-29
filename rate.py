@@ -33,7 +33,10 @@ async def knb_stat(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("Назад", callback_data="back")],
     ]
     markup = InlineKeyboardMarkup(keyboard)
-    await query.edit_message_text("статистика КНБ", reply_markup=markup)
+    # Вызвать фунцию \n
+    # 1. alex123 - 70
+    # 2. anton32 - 20
+    await query.edit_message_text("Статистика КНБ", reply_markup=markup)
     return RATE
 
 async def knz_stat(update: Update, context: ContextTypes.DEFAULT_TYPE):
